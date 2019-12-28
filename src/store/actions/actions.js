@@ -34,7 +34,13 @@ export const initGlucoseValues = (startDate) => {
             })
     }
 }
+export const getTreatments = (startDate) =>{
+    const query = 'https://berten76app2.herokuapp.com/api/v1/treatments.json?find[created_at][$gte]=2019-12-27T23:00:00.000Z'
+}
 
+export const getDeviceStatus = (startDate) => {
+    const query = 'https://berten76app2.herokuapp.com/api/v1/devicestatus.json?find[created_at][$gte]=2019-12-27T23:00:00.000Z&count=10000'
+}
 export const testReducer = () =>{
     return dispatch => {
         /*setTimeout( () => {

@@ -59,6 +59,22 @@ class InsulinChart extends Component {
             returnLabels(this.props.glucoseData[0].date);
             label[0] = moment(this.props.glucoseData[0].date).format('DD/MM');
         }
+        var colors = []
+        for(var i = 0; i < this.props.glucoseData.length; i++){
+            
+            var color;
+            var value=-1;
+            if(this.props.glucoseData[i].sgv != null)
+                var value = this.props.glucoseData[i].sgv/18
+
+            if(value >= 10 || value < 4){
+                color = 'red';
+            }
+            else {
+                color = 'green';
+            }
+                colors[i] = color;
+        }
         let gData= {
             data: {
                // labels: label,
@@ -67,7 +83,7 @@ class InsulinChart extends Component {
                         label: "sugar",
                         fill: false,
                         showLine: false,
-                        backgroundColor: "rgba(255, 0, 255, 0.75)",
+                        backgroundColor: colors,//"rgba(255, 0, 255, 0.75)",
                         data: this.props.glucoseData.map(data => ({
                             x: data.date,
                             y: data.sgv/18
@@ -103,9 +119,7 @@ class InsulinChart extends Component {
                            
                                   if(dataLabel.substring(dataLabel.length-5) === '00:00'){
                                     counter++;
-                                    console.log('aaaaa '+ dataLabel);
                                       let sss = dataLabel.substring(0, dataLabel.length-5)
-                                    console.log('aaaaa '+ sss);
                                         return sss;
                                     }
                                    if(dataLabel.slice(dataLabel.length-2)== '00'){
