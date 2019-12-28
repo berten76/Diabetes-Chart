@@ -50,13 +50,13 @@ class InsulinChart extends Component {
                               let sss = dataLabel.substring(0, dataLabel.length-5)
                                 return sss;
                             }
-                           if(dataLabel.slice(dataLabel.length-2)== '00'){
+                           if(dataLabel.substring(dataLabel.length-2)== '00'){
                                 if(counter > 0) {
                                     counter=0;
                                     return ''
                                 }
                                 counter++;
-                                return dataLabel.slice(dataLabel.length-5);
+                                return dataLabel.substring(dataLabel.length-5);
                            }
                             return dataLabel;
                         }
