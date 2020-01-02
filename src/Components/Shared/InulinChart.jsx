@@ -96,8 +96,11 @@ class InsulinChart extends Component {
             if(this.props.glucoseData[i].sgv != null)
                 var value = this.props.glucoseData[i].sgv/18
 
-            if(value >= 10 || value < 4){
+            if(value >= 10 || value < 3){
                 color = 'red';
+            }
+            else if(value >= 8.5 || value < 4){
+                color = 'yellow';
             }
             else {
                 color = 'green';

@@ -7,6 +7,8 @@ import LiveData from './LiveData/LiveData';
 import Reports from './Reports/Reports';
 import HeaderComponent from './Shared/HeaderComponent';
 import FooterComponent from './Shared/FooterComponent';
+import Parameters from './Parameters/Parameters';
+
 class DiabeticChartApp extends Component {
     render() {
         return (
@@ -19,6 +21,7 @@ class DiabeticChartApp extends Component {
                             <Route path="/login" component={LoginComponent}/>
                             <AuthenticatedRoute path="/LiveData" component={LiveData}/>
                             <AuthenticatedRoute path="/Reports" component={Reports}/>
+                            <AuthenticatedRoute path="/Parameters" component={Parameters}/>
                             <Route path="/logout" component={LogoutComponent}/>
                             <Route component={ErrorComponent}/>
                         </Switch>
